@@ -1,12 +1,9 @@
-const express = require("express");
-const passport = require("passport");
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const express = require('express');
+require('./services/passport');
+
 const app = express();
 
-/* console.developers.google.com */
-/* clientID 501241993264-u8tae954pgu9f968gjgpfufa4i903a94.apps.googleusercontent.com */
-/* clientSecret BCD3tvfd3xM1FS9VgKxqHJWT */
-passport.use(new GoogleStrategy());
+require('./routes/authRoutes')(app);
 
 /*app.get("/", (req, res) => {
   res.send({ hey: "Good Luck!" });
